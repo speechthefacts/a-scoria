@@ -2,7 +2,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const stripe = require('stripe')('sk_test_51OVBbFH0S2ts1MYe41bcBxWgthbhitxF0cr1gxtlGjfEF48HIUMC3RtrtTAvQcuaBxdAIWe0fSsRxMtA29sy16hS00aiDfmOJ1');
+
+const dotenv = require("dotenv");
+dotenv.config();
+
+const stripe = require('stripe')(process.env.STRIPE_KEY);
 
 // Middleware
 app.use(bodyParser.json());
