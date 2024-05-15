@@ -39,7 +39,7 @@ app.post('/create-checkout-session', async (req, res) => {
             }
         };
 
-        if (body.type == "bac_rectangle") {
+        if (req.body.type == "bac_rectangle") {
             defaultPaymentParameters["line_items"] = [
                 {
                     price_data: {
@@ -60,7 +60,7 @@ app.post('/create-checkout-session', async (req, res) => {
                 avecPieds: req.body.avecPieds,
                 avecRoulettes: req.body.avecRoulettes
             };
-        } else if (body.type == "bac_rond") {
+        } else if (req.body.type == "bac_rond") {
             defaultPaymentParameters["line_items"] = [
                 {
                     price_data: {
@@ -77,7 +77,7 @@ app.post('/create-checkout-session', async (req, res) => {
                 diametre: req.body.diametre, // Récupération du diamètre depuis le corps de la requête
                 hauteur: req.body.hauteur // Récupération de la hauteur depuis le corps de la requête
             };
-        } else if (body.type == "brise_vue") {
+        } else if (req.body.type == "brise_vue") {
             defaultPaymentParameters["line_items"] = [
                 {
                     price_data: {
