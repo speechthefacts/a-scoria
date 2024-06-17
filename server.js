@@ -62,7 +62,9 @@ app.post('/create-checkout-session', async (req, res) => {
                 hauteur: req.body.hauteur,
                 quantity: req.body.quantity,
                 avecPieds: req.body.avecPieds,
-                avecRoulettes: req.body.avecRoulettes
+                avecRoulettes: req.body.avecRoulettes,
+                livraisonDomicile : req.body.livraisonDomicile,
+                retraitAtelier : req.body.retraitAtelier,
             };
         } else if (req.body.type == "bac_rond") {
             defaultPaymentParameters["line_items"] = [
@@ -79,7 +81,12 @@ app.post('/create-checkout-session', async (req, res) => {
             ];
             defaultPaymentParameters["metadata"] = { // Ajoutez les métadonnées ici
                 diametre: req.body.diametre, // Récupération du diamètre depuis le corps de la requête
-                hauteur: req.body.hauteur // Récupération de la hauteur depuis le corps de la requête
+                hauteur: req.body.hauteur, // Récupération de la hauteur depuis le corps de la requête
+                quantity: req.body.quantity,    
+                avecPieds:req.body.avecPieds,
+                avecRoulettes: req.body.avecRoulettes,
+                livraison : req.body.livraison,
+                retrait : req.body.retrait,
             };
         } else if (req.body.type == "brise_vue") {
             defaultPaymentParameters["line_items"] = [
@@ -97,7 +104,10 @@ app.post('/create-checkout-session', async (req, res) => {
             defaultPaymentParameters["metadata"] = { // Ajoutez les métadonnées ici
                 longueur: req.body.longueur, // Récupération de la longueur depuis le corps de la requête
                 hauteur: req.body.hauteur, // Récupération de la hauteur depuis le corps de la requête
-                motif: req.body.motif // Récupération du motif depuis le corps de la requête
+                motif: req.body.motif, // Récupération du motif depuis le corps de la requête
+                livraisonDomicile : req.body.livraisonDomicile,
+                retraitAtelier : req.body.retraitAtelier, 
+                quantity: req.body.quantity,  
             };
         }
 
